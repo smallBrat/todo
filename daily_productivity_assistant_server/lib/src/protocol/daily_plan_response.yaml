@@ -1,0 +1,7 @@
+class: DailyPlanResponse
+fields:
+  date: DateTime
+  slots: List<DailyPlanSlot>
+  totalTaskMinutes: int
+  totalBreakMinutes: int
+  freeMinutes: int

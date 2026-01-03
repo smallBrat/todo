@@ -1,0 +1,40 @@
+### Daily summary model for tracking daily productivity metrics
+### Generated at end-of-day (9 PM cutoff) as a frozen historical record
+class: DailySummary
+table: daily_summary
+
+fields:
+  ### Unique identifier for the daily summary
+  id: int?
+  
+  ### User ID this summary belongs to
+  userId: int
+  
+  ### The date for this summary
+  date: DateTime
+  
+  ### Total number of tasks planned in the DailyPlan
+  totalTasksPlanned: int
+  
+  ### Number of tasks completed
+  completedCount: int
+  
+  ### Number of tasks explicitly skipped by user
+  skippedCount: int
+  
+  ### Number of tasks that were pending at day end (ran out of time)
+  missedCount: int
+  
+  ### Completion ratio (completedCount / totalTasksPlanned)
+  completionRatio: double
+  
+  ### Total focused minutes (sum of completed task durations)
+  totalFocusedMinutes: int
+  
+  ### Timestamp when this summary was created (EOD closure time)
+  createdAt: DateTime
+
+indexes:
+  daily_summary_user_date_idx:
+    fields: userId, date
+    unique: true

@@ -1,0 +1,44 @@
+services:
+  # Development services
+  postgres:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "8090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: daily_productivity_assistant
+      POSTGRES_PASSWORD: "RLWxcDm-4XLdt0OxRz4nApyfQ8vNjP-g"
+    volumes:
+      - daily_productivity_assistant_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6.2.6
+    ports:
+      - "8091:6379"
+    command: redis-server --requirepass "yLGzab56Szh_YoijaUk4o6KmHdLOjtm1"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+  # Test services
+  postgres_test:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "9090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: daily_productivity_assistant_test
+      POSTGRES_PASSWORD: "yo49roCoMqMmKwwHGvgto8S09ixfJQr1"
+    volumes:
+      - daily_productivity_assistant_test_data:/var/lib/postgresql/data
+
+  redis_test:
+    image: redis:6.2.6
+    ports:
+      - "9091:6379"
+    command: redis-server --requirepass "y9EmkQR8nuQkKb2oqWaPWvu2cAYGI34X"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+volumes:
+  daily_productivity_assistant_data:
+  daily_productivity_assistant_test_data:

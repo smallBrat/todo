@@ -1,0 +1,30 @@
+class: Task
+table: task
+
+fields:
+  goalId: int
+  title: String
+  estimatedDuration: int
+  energyLevel: String
+  priority: String
+  scheduledTime: DateTime?
+  ### Task deadline: when the task should be completed by
+  ### - null means no deadline
+  ### - DateTime value indicates deadline for the task
+  deadline: DateTime?
+  ### Task status: 'pending', 'completed', 'skipped', 'missed'
+  ### - pending: not yet done
+  ### - completed: finished by user
+  ### - skipped: explicitly skipped by user
+  ### - missed: was pending at day end (9 PM cutoff)
+  status: String
+  completedAt: DateTime?
+  updatedAt: DateTime?
+
+indexes:
+  task_goalId_idx:
+    fields: goalId
+  task_scheduledTime_idx:
+    fields: scheduledTime
+  task_deadline_idx:
+    fields: deadline

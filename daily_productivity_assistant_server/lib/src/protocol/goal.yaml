@@ -1,0 +1,28 @@
+### Goal model representing a user's daily goal
+class: Goal
+table: goal
+
+fields:
+  ### Unique identifier for the goal
+  id: int?
+  
+  ### Foreign key reference to the User who owns this goal
+  userId: int
+  
+  ### Title or description of the goal
+  title: String
+  
+  ### Priority level of the goal (low, medium, high)
+  priority: String
+  
+  ### The date when the goal is set for
+  date: DateTime
+  
+  ### Current status of the goal (pending, completed, skipped)
+  status: String
+
+indexes:
+  goal_userId_idx:
+    fields: userId
+  goal_date_idx:
+    fields: date

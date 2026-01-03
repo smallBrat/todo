@@ -1,0 +1,7 @@
+class: NextBestTaskResult
+
+fields:
+  taskId: int
+  totalScore: double
+  scoreBreakdown: Map<String,double>
+  explanation: String

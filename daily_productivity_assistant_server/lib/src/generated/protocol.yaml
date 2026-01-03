@@ -1,0 +1,20 @@
+devSeed:
+  - seedTasks:
+greeting:
+  - hello:
+planning:
+  - getNextBestTask:
+  - getTodayTimeline:
+  - getDailyPlan:
+  - generateAndSavePlan:
+  - getSavedPlan:
+  - deleteSavedPlan:
+  - closeDay:
+  - getDailySummary:
+  - getDailySummaryRange:
+  - updateTaskStatus:
+task:
+  - createTask:
+  - updateTaskStatus:
+  - updateTaskDetails:
+  - deleteTask:

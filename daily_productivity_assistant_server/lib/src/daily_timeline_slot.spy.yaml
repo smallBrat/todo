@@ -1,0 +1,8 @@
+class: DailyTimelineSlot
+
+fields:
+  start: DateTime
+  end: DateTime
+  taskId: int?
+  label: String
+  type: String

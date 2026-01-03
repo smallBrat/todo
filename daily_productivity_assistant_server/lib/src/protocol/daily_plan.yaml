@@ -1,0 +1,30 @@
+### DailyPlan represents a user's plan for a specific day
+class: DailyPlan
+table: daily_plan
+serverOnly: true
+
+fields:
+  ### Unique identifier for the daily plan
+  id: int?
+
+  ### Foreign key reference to the user who owns this plan
+  userId: int
+
+  ### The date this plan is for
+  date: DateTime
+
+  ### Total minutes allocated to tasks
+  totalTaskMinutes: int
+
+  ### Total minutes allocated to breaks
+  totalBreakMinutes: int
+
+  ### Total minutes of idle/free time
+  freeMinutes: int
+
+  ### Timestamp when this plan was created
+  createdAt: DateTime, default=now
+
+indexes:
+  userId_date_idx:
+    fields: userId, date

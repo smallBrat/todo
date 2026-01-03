@@ -1,0 +1,4 @@
+type: server
+
+client_package_path: ../daily_productivity_assistant_client
+server_test_tools_path: test/integration/test_tools

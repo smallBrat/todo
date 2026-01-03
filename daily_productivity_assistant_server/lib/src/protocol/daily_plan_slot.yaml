@@ -1,0 +1,11 @@
+class: DailyPlanSlot
+fields:
+  startTime: DateTime
+  endTime: DateTime
+  type: String        # task | break | idle
+  title: String
+  durationMinutes: int
+  taskId: int?        # task ID if this slot is for a specific task
+  energyLevel: String?
+  priority: String?
+  status: String?     # Task status: pending, completed, etc. (null for non-task slots)

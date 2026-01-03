@@ -1,0 +1,39 @@
+### DailyPlanSlotEntity represents a time slot in a daily plan
+class: DailyPlanSlotEntity
+table: daily_plan_slot
+serverOnly: true
+
+fields:
+  ### Unique identifier for the slot
+  id: int?
+
+  ### Foreign key reference to the parent DailyPlan
+  planId: int
+
+  ### Start time of this slot
+  startTime: DateTime
+
+  ### End time of this slot
+  endTime: DateTime
+
+  ### Duration of this slot in minutes
+  durationMinutes: int
+
+  ### Type of slot: "task", "break", or "idle"
+  type: String
+
+  ### Title or label for this slot
+  title: String
+
+  ### Optional task ID if this slot is for a specific task
+  taskId: int?
+
+  ### Optional energy level required (low, medium, high)
+  energyLevel: String?
+
+  ### Optional priority level
+  priority: String?
+
+indexes:
+  planId_idx:
+    fields: planId

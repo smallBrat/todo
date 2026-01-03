@@ -1,0 +1,16 @@
+version: 0.0
+os: linux
+files:
+  - source: /vendor/
+    destination: /home/ec2-user/serverpod/upload/vendor/
+  - source: /daily_productivity_assistant_server/
+    destination: /home/ec2-user/serverpod/upload/daily_productivity_assistant_server/
+hooks:
+  BeforeInstall:
+    - location: daily_productivity_assistant_server/deploy/aws/scripts/install_dependencies
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: daily_productivity_assistant_server/deploy/aws/scripts/start_server
+      timeout: 300
+      runas: root
